@@ -1,0 +1,9 @@
+name: OurHouse
+main: io.github.mintish.ourhouse.OurHouse
+version: 0.0-SNAPSHOT
+commands:
+    ourhouse:
+        description: This command lets you claim territory around a point.
+        usage: /ourhouse
+        permission: OurHouse.ourhouse
+        permission-message: You don't have <permission>

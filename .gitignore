@@ -1,0 +1,2 @@
+# Exclude .class files.
+*.class
