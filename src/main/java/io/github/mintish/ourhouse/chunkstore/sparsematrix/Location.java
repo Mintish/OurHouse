@@ -1,6 +1,13 @@
 package io.github.mintish.ourhouse.chunkstore.sparsematrix;
 
-public class Location {
+import java.io.Serializable;
+
+public class Location implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 100L;
+
 	public Location(int x, int z) {
 		this.x = x;
 		this.z = z;
