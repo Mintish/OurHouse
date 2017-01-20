@@ -8,7 +8,6 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockBurnEvent;
 import org.bukkit.event.block.BlockExplodeEvent;
-import org.bukkit.event.block.BlockFormEvent;
 import org.bukkit.event.block.BlockIgniteEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.block.BlockSpreadEvent;
@@ -49,11 +48,6 @@ public class BlockEventHandlers extends OurhouseEventHandler  {
 	public void onBlockExplodeEvent(BlockExplodeEvent event) {
 		if (chunkStore.anyForbidden(null, event.blockList()))
 			event.setCancelled(true);
-	}
-	
-	@EventHandler
-	public void onBlockFormEvent(BlockFormEvent event) {
-		System.out.println("onBlockFormEvent " + event.getNewState().getType());
 	}
 	
 	@EventHandler

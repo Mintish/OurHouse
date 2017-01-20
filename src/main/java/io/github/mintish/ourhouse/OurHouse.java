@@ -12,7 +12,7 @@ import java.util.logging.Level;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import io.github.mintish.ourhouse.chunkstore.GenericChunkStore;
-import io.github.mintish.ourhouse.chunkstore.StupidChunkStore;
+import io.github.mintish.ourhouse.chunkstore.SparseMatrixChunkStore;
 import io.github.mintish.ourhouse.spigoteventhandlers.BlockEventHandlers;
 import io.github.mintish.ourhouse.spigoteventhandlers.EntityEventHandlers;
 import io.github.mintish.ourhouse.spigoteventhandlers.HangingEventHandlers;
@@ -50,7 +50,7 @@ public class OurHouse extends JavaPlugin {
 			this.getLogger().log(Level.SEVERE, e.getMessage(), e);
 		} finally {
 			if (this.chunkStore == null)
-				this.chunkStore = new StupidChunkStore();
+				this.chunkStore = new SparseMatrixChunkStore();
 		}
 		
 		Integer chunkPrice = this.getConfig().getInt("chunk-price");
@@ -61,7 +61,7 @@ public class OurHouse extends JavaPlugin {
 		this.getServer().getPluginManager().registerEvents(new EntityEventHandlers(chunkStore), this);
 		this.getServer().getPluginManager().registerEvents(new PlayerEventHandlers(chunkStore), this);
 		this.getCommand("ourhouse").setExecutor(new CommandOurhouse(chunkStore, chunkPrice, this.getServer()));
-		this.getLogger().info("Enabled.");
+		this.getLogger().info(">> OurHouse Enabled <<");
 	}
 	
 	@Override
@@ -73,6 +73,6 @@ public class OurHouse extends JavaPlugin {
 		} catch (IOException e) {
 			getLogger().log(Level.SEVERE, e.getMessage(), e);
 		}
-		getLogger().info("Disabled.");
+		getLogger().info(">> OurHouse Disabled <<");
 	}
 }
