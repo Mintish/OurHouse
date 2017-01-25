@@ -32,6 +32,7 @@ public class Location implements Serializable {
 		return hash;
 	}
 	
+	@Override
 	public boolean equals(Object other) {
 		if (other == null)
 			return false;
