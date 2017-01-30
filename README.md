@@ -7,7 +7,7 @@ OurHouse supports Bukkit 1.11-R0.1.
 ## Currently the plugin supports the following...
 
 ### Commands
-- `/ourhouse cliam` to claim the chunk you're standing on for the price configured in `config.yml`.
+- `/ourhouse claim` to claim the chunk you're standing on for the price configured in `config.yml`.
 - `/ourhouse abandon` to abandon the current chunk. Note: no refunds!
 - `/ourhouse info` to list whether you're the owner of the current chunk.
 - `/ourhouse addFriend [friend name]` to add another player as a builder for all your chunks.
