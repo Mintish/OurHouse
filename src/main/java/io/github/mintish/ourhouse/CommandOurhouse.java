@@ -145,16 +145,25 @@ public class CommandOurhouse implements CommandExecutor {
 	
 	private Boolean buyChunk(Player player) {
 		Boolean bought = false;
-		HashMap<Integer, ItemStack> remainder = player.getInventory().removeItem(new ItemStack(Material.EMERALD, chunkPrice));
-		if (remainder.isEmpty())
+		int amountTaken = tryTakeEmeralds(player, chunkPrice);
+		if (amountTaken == chunkPrice)
 			bought = true;
-		else {
-			int remainderAmount = 0;
-			for (ItemStack itemStack : remainder.values())
-				remainderAmount += itemStack.getAmount();
-			player.getInventory().addItem(new ItemStack(Material.EMERALD, chunkPrice - remainderAmount));
-		}
+		else
+			giveBackEmeralds(player, amountTaken);
 		return bought;
+	}
+	
+	private Integer tryTakeEmeralds(Player player, Integer emeralds) {
+		HashMap<Integer, ItemStack> remainder = player.getInventory().removeItem(new ItemStack(Material.EMERALD, chunkPrice));
+		int remainderAmount = 0;
+		for (ItemStack itemStack : remainder.values())
+			remainderAmount += itemStack.getAmount();
+		int amountTaken = emeralds - remainderAmount;
+		return amountTaken;
+	}
+
+	private void giveBackEmeralds(Player player, Integer emeralds) {
+		player.getInventory().addItem(new ItemStack(Material.EMERALD, emeralds));
 	}
 
 }
